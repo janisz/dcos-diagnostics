@@ -1,7 +1,7 @@
 FORMAT: 1A
 HOST: http://master.dcos.io:1050/system/health/v1
 
-# dcos-disgnostics 
+# dcos-diagnostics 
 
 ## Diagnostics Bundles [/system/health/v1]
 
@@ -81,8 +81,6 @@ This works only on masters and means the budnle will be creaded on selected node
 ### Delete a Bundle [DELETE /report/diagnostics/{uuid}]
 
 When bundle exists and is `DONE` it delete the bundle file.
-If called on master then bundle is deleted from all nodes 
-and changes status to `DELETED`.
 If bundle was already `DELETED` is does not change it state.
 
 + Parameters
@@ -119,8 +117,6 @@ If bundle was already `DELETED` is does not change it state.
 ### Cancel a Bundle [DELETE /report/diagnostics/{uuid}]
         
 When bundle is in progress (`STARTED`, `PROCESSING`) it cancel bundle creation and remove all intermidiete files.
-If called on master then bundle is canceled and deleted from all nodes 
-and changes status to `CANCELED`.
 If bundle was already `CANCELED` is does not change it state.
 
 + Response 200 (application/json)
